@@ -8,7 +8,7 @@ export default function RequireAuth({ children, adminOnly = false }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (loading) return;
+    if (loading) return; // attend que session + profil soient chargés
     if (!session) router.replace('/login');
     else if (adminOnly && !isAdmin) router.replace('/');
   }, [loading, session, isAdmin]);
